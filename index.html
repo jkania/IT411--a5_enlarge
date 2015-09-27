@@ -1,0 +1,42 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+  <title>IT 411 - Jennifer Kania - Assignment 5 - Enlarging An Image</title>
+  <link href="stylesheets/IT411b.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      var current_w = null;
+      var current_h = null;
+      $(".image").css({opacity: 0.5});
+
+      $(".image").mouseenter(function() {
+          current_w = this.width;
+          current_h = this.height;
+          
+       $(this).stop().animate({opacity: 1, width: current_w*2, height: current_h*2}, 2000);
+      });
+
+      $(".image").mouseleave(function() {
+        $(this).stop().animate({opacity: 0.5, width: current_w + "px", height: current_h + "px"}, 2000);
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+  <h1>IT 411 - Jennifer Kania - A5 - Enlarging an Image</h1>
+  <h2>Displaying a gallery of images - hover over an image to make it bigger</h2>
+  <hr />
+  <div id="content">
+  </div>
+  <div id="gallery">
+    <h3>Gallery of images</h3>
+    <img class="image" src="images/gnu.jpg" height="200px" width="250px">
+    <img class="image" src="images/tiger.jpg" height="200px" width="250px">
+    <img class="image" src="images/black_rhino.jpg" height="200px" width="250px">
+    <img class="image" src="images/cape_buffalo.jpg" height="200px" width="250px">
+  </div>
+</body>
+</html>
